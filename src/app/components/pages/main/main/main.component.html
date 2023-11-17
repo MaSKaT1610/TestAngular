@@ -1,0 +1,30 @@
+<header>
+    <a routerLink="profile" class="profile">
+        <img class="image" src="../../assets/images/profile-image.png" alt="profile-image">
+            <div class="username" #username></div>
+    </a>
+    <a href="#" class="logout" (click)="logOut()">
+        <img class="image" src="../../assets/images/logout-image.png" alt="logout-image">
+        <div class="logout">Logout</div>
+    </a>
+</header>
+<aside>
+    <ul>
+        <li routerLink="home" routerLinkActive="active-link" class="hover-link">
+            <a>Home</a>
+        </li>
+        <li routerLink="inventory" routerLinkActive="active-link" class="hover-link">
+            <a>Inventory</a>
+        </li>
+        <li routerLink="reports" routerLinkActive="active-link" class="hover-link">
+            <a>Reports</a>
+        </li>
+        <li routerLink="billing" routerLinkActive="active-link" class="hover-link">
+            <a>Billing</a>
+        </li>
+        <li routerLink="profile" routerLinkActive="active-link" class="hover-link">
+            <a>Profile</a>
+        </li>
+    </ul>
+</aside>
+<router-outlet></router-outlet>

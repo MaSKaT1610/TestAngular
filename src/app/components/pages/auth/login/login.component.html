@@ -1,0 +1,28 @@
+<div class="login-box" [formGroup]="loginForm">
+    <h1>Login</h1>
+    <div class="input-title">Email</div>
+    <input type="email" formControlName="email" required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+        [class]="{'border-danger': email?.invalid && (email?.dirty || email?.touched)}">
+    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <div class="text-danger" *ngIf="email?.errors?.['required']">
+            Email is required
+        </div>
+        <div class="text-danger" *ngIf="email?.errors?.['pattern']">
+            Invalid Email
+        </div>
+    </div>
+    <div class="input-title">Passsword</div>
+    <input type="password" formControlName="password" required
+        [class]="{'border-danger': password?.invalid && (password?.dirty || password?.touched)}">
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+            <div class="text-danger" *ngIf="password?.errors?.['required']">
+                Password is required
+            </div>
+        </div>
+    <button class="login-button" (click)="LogIn()">Log In</button>
+    <div class="error" #error>
+        Email or password is invalid
+        <img class="close-image" src="../../../../../assets/images/close-image.png" alt="close-image"
+            (click)="close()">
+    </div>
+</div>

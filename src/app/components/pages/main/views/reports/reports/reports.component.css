@@ -1,0 +1,22 @@
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.workplace {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.error {
+    padding: 10px;
+    font-size: 30px;
+}

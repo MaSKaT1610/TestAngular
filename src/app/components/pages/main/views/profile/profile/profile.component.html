@@ -1,0 +1,95 @@
+<div class="profile" [formGroup]="profileForm">
+    <div class="input">
+        <div class="input-block">
+            <div class="input-name">Email</div>
+            <input class="email-input" id="email" type="email" readonly formControlName="email">
+        </div>
+    </div>
+    <div class="input">
+        <div class="input-block">
+            <div class="input-name">First Name</div>
+            <input id="firstName" type="text" formControlName="firstName" maxlength="255"
+                [class]="{'border-danger': firstName.invalid && (firstName.dirty || firstName.touched)}">
+        </div>
+        <div class="error-block">
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                <div class="text-danger" *ngIf="firstName.errors?.['required']">
+                    First Name is required
+                </div>
+            </div>
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                <div class="text-danger" *ngIf="firstName.errors?.['minlength']">
+                    First Name must contain more than 4 letters
+                </div>
+            </div>
+            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                <div class="text-danger" *ngIf="firstName.errors?.['pattern']">
+                    First Name must contain only letters
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="input">
+        <div class="input-block">
+            <div class="input-name">Last Name</div>
+            <input id="lastName" type="text" formControlName="lastName" maxlength="255"
+                [class]="{'border-danger': lastName.invalid && (lastName.dirty || lastName.touched)}">
+        </div>
+        <div class="error-block">
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                <div class="text-danger" *ngIf="lastName.errors?.['required']">
+                    Last Name is required
+                </div>
+            </div>
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                <div class="text-danger" *ngIf="lastName.errors?.['minlength']">
+                    Last Name must contain more than 4 letters
+                </div>
+            </div>
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                <div class="text-danger" *ngIf="lastName.errors?.['pattern']">
+                    Last Name must contain only letters
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="input">
+        <div class="input-block">
+            <div class="input-name">Phone</div>
+            <input id="phone" type="text" formControlName="phone" (input)="addPrefix($event)" maxlength="12"
+                [class]="{'border-danger': phone.invalid && (phone.dirty || phone.touched)}">
+        </div>
+        <div class="error-block">
+            <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                <div class="text-danger" *ngIf="phone.errors?.['required']">
+                    Phone is required
+                </div>
+                <div class="text-danger" *ngIf="phone.errors?.['pattern']">
+                    Phone is incorrect
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="input">
+        <div class="input-block">
+            <div class="input-name">Website Url</div>
+            <input id="webUrl" type="url" formControlName="webURL"
+                [class]="{'border-danger': webURL.invalid && (webURL.dirty || webURL.touched)}">
+        </div>
+        <div class="error-block">
+            <div *ngIf="webURL.invalid && (webURL.dirty || webURL.touched)">
+                <div class="text-danger" *ngIf="webURL.errors?.['pattern']">
+                    webURL is incorrect
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="profile-button" (click)="accept()">Accept</button>
+    <div class="success" #success>
+        Profile successfully edited
+        <img class="close-image" src="../../../../../../../assets/images/close-image.png" alt="close-image"
+            (click)="close()">
+    </div>
+</div>
